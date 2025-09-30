@@ -100,74 +100,63 @@
             background: #c0392b;
         }
 
-        .comparison-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+        .demo-container {
             margin-top: 20px;
         }
 
-        .comparison-section {
+        .demo-table-section {
             padding: 20px;
-            border: 2px solid #bdc3c7;
+            border: 2px solid #27ae60;
             border-radius: 8px;
+            background: white;
         }
 
-        .comparison-title {
+        .demo-title-main {
             font-weight: 600;
             margin-bottom: 15px;
-            color: #2c3e50;
+            color: white;
             text-align: center;
-            padding: 10px;
+            padding: 15px;
             border-radius: 6px;
-        }
-
-        .traditional {
-            border-color: #e74c3c;
-        }
-
-        .traditional .comparison-title {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .choi-sungho {
-            border-color: #27ae60;
-        }
-
-        .choi-sungho .comparison-title {
             background: #27ae60;
-            color: white;
+            font-size: 1.2em;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 10px 0;
-            font-size: 13px;
+            font-size: clamp(11px, 2vw, 14px);
+            overflow-x: auto;
         }
 
         th, td {
             border: 1px solid #ddd;
-            padding: 12px 8px;
+            padding: clamp(8px, 1.5vw, 12px);
             text-align: center;
+            white-space: nowrap;
         }
 
         th {
-            background: #f8f9fa;
+            background: #e8f5e8;
             font-weight: 600;
             color: #2c3e50;
+            font-size: clamp(12px, 2.2vw, 15px);
         }
 
         td:first-child {
             text-align: left;
             font-weight: 600;
             background: #f8f9fa;
+            white-space: normal;
+            min-width: 200px;
         }
 
-        .traditional-table td:nth-child(2),
-        .traditional-table td:nth-child(5) {
-            text-align: right;
+        /* 반응형 테이블 스크롤 */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 8px;
         }
 
         .feature-list {
@@ -211,13 +200,88 @@
         }
 
         @media (max-width: 768px) {
-            .comparison-container {
-                grid-template-columns: 1fr;
+            body {
+                padding: 10px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .demo-section {
+                padding: 15px;
+            }
+
+            .controls {
+                padding: 10px;
             }
 
             .control-group {
                 display: block;
                 margin-bottom: 15px;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+                margin: 2px;
+            }
+
+            table {
+                font-size: 11px;
+            }
+
+            td:first-child {
+                min-width: 150px;
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .demo-section {
+                padding: 10px;
+                margin: 15px 0;
+            }
+
+            .controls {
+                padding: 8px;
+            }
+
+            .control-group {
+                margin-bottom: 10px;
+            }
+
+            button {
+                padding: 6px 12px;
+                font-size: 12px;
+                width: calc(50% - 5px);
+                margin: 2px;
+            }
+
+            table {
+                font-size: 10px;
+            }
+
+            th, td {
+                padding: 6px 4px;
+            }
+
+            td:first-child {
+                min-width: 120px;
+                font-size: 9px;
+                line-height: 1.2;
             }
         }
     </style>
@@ -245,7 +309,7 @@
     </div>
 
     <div class="demo-section">
-        <div class="demo-title">📊 실시간 비교 데모</div>
+        <div class="demo-title">🎯 최성호 방식 실시간 데모</div>
 
         <div class="controls">
             <div class="control-group">
@@ -267,180 +331,106 @@
             </div>
         </div>
 
-        <div class="comparison-container">
-            <div class="comparison-section traditional">
-                <div class="comparison-title">기존 방식 (Traditional)</div>
-                <table class="traditional-table">
-                    <thead>
-                        <tr>
-                            <th>특약명</th>
-                            <th>가입금액</th>
-                            <th>보험기간</th>
-                            <th>납입기간</th>
-                            <th>보험료(원)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>(무) 중등도치매보장종합특약(해약환급금미지급형/상해질병포함)</td>
-                            <td>10,000,000원</td>
-                            <td>100세만기</td>
-                            <td>10년납</td>
-                            <td>99,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 암진단종합보장특약(해약환급금미지급형/재진단포함)</td>
-                            <td>30,000,000원</td>
-                            <td>종신</td>
-                            <td>20년납</td>
-                            <td>254,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 급성심근경색증종합진단특약(완전관해후재진단포함)</td>
-                            <td>20,000,000원</td>
-                            <td>100세만기</td>
-                            <td>15년납</td>
-                            <td>187,500원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 뇌졸중종합진단특약(해약환급금미지급형/재진단포함)</td>
-                            <td>20,000,000원</td>
-                            <td>100세만기</td>
-                            <td>20년납</td>
-                            <td>162,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 일반상해사망장해종합특약(교통상해포함)</td>
-                            <td>50,000,000원</td>
-                            <td>100세만기</td>
-                            <td>10년납</td>
-                            <td>123,500원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 교통상해사망장해종합특약(대중교통2배보장)</td>
-                            <td>100,000,000원</td>
-                            <td>100세만기</td>
-                            <td>20년납</td>
-                            <td>89,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 질병입원의료비종합특약(입원일당/수술비포함)</td>
-                            <td>50,000원</td>
-                            <td>100세만기</td>
-                            <td>30년납</td>
-                            <td>428,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 상해입원의료비종합특약(입원일당/응급실내원포함)</td>
-                            <td>50,000원</td>
-                            <td>100세만기</td>
-                            <td>10년납</td>
-                            <td>156,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 수술비종합특약(해약환급금미지급형/소액수술포함)</td>
-                            <td>2,000,000원</td>
-                            <td>종신</td>
-                            <td>15년납</td>
-                            <td>211,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 치매간병비종합특약(해약환급금미지급형/인지장애포함)</td>
-                            <td>2,000,000원</td>
-                            <td>종신</td>
-                            <td>15년납</td>
-                            <td>894,000원</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="demo-container">
+            <div class="demo-table-section">
+                <div class="demo-title-main">✨ 최성호 방식 (Choi Sungho Method)</div>
+                <div class="table-wrapper">
+                    <table id="choiSunghoTable">
+                        <thead>
+                            <tr>
+                                <th>특약명</th>
+                                <th>가입금액</th>
+                                <th>보험기간</th>
+                                <th>납입기간</th>
+                                <th>보험료(원)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(무) 중등도치매보장종합특약(해약환급금미지급형/상해질병포함)</td>
+                                <td>10,000,000원</td>
+                                <td>100세만기</td>
+                                <td>10년납</td>
+                                <td>99,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 암진단종합보장특약(해약환급금미지급형/재진단포함)</td>
+                                <td>30,000,000원</td>
+                                <td>종신</td>
+                                <td>20년납</td>
+                                <td>254,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 급성심근경색증종합진단특약(완전관해후재진단포함)</td>
+                                <td>20,000,000원</td>
+                                <td>100세만기</td>
+                                <td>15년납</td>
+                                <td>187,500원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 뇌졸중종합진단특약(해약환급금미지급형/재진단포함)</td>
+                                <td>20,000,000원</td>
+                                <td>100세만기</td>
+                                <td>20년납</td>
+                                <td>162,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 일반상해사망장해종합특약(교통상해포함)</td>
+                                <td>50,000,000원</td>
+                                <td>100세만기</td>
+                                <td>10년납</td>
+                                <td>123,500원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 교통상해사망장해종합특약(대중교통2배보장)</td>
+                                <td>100,000,000원</td>
+                                <td>100세만기</td>
+                                <td>20년납</td>
+                                <td>89,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 질병입원의료비종합특약(입원일당/수술비포함)</td>
+                                <td>50,000원</td>
+                                <td>100세만기</td>
+                                <td>30년납</td>
+                                <td>428,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 상해입원의료비종합특약(입원일당/응급실내원포함)</td>
+                                <td>50,000원</td>
+                                <td>100세만기</td>
+                                <td>10년납</td>
+                                <td>156,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 수술비종합특약(해약환급금미지급형/소액수술포함)</td>
+                                <td>2,000,000원</td>
+                                <td>종신</td>
+                                <td>15년납</td>
+                                <td>211,000원</td>
+                            </tr>
+                            <tr>
+                                <td>(무) 치매간병비종합특약(해약환급금미지급형/인지장애포함)</td>
+                                <td>2,000,000원</td>
+                                <td>종신</td>
+                                <td>15년납</td>
+                                <td>894,000원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
 
-            <div class="comparison-section choi-sungho">
-                <div class="comparison-title">최성호 방식 (Choi Sungho Method)</div>
-                <table id="choiSunghoTable">
-                    <thead>
-                        <tr>
-                            <th>특약명</th>
-                            <th>가입금액</th>
-                            <th>보험기간</th>
-                            <th>납입기간</th>
-                            <th>보험료(원)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>(무) 중등도치매보장종합특약(해약환급금미지급형/상해질병포함)</td>
-                            <td>10,000,000원</td>
-                            <td>100세만기</td>
-                            <td>10년납</td>
-                            <td>99,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 암진단종합보장특약(해약환급금미지급형/재진단포함)</td>
-                            <td>30,000,000원</td>
-                            <td>종신</td>
-                            <td>20년납</td>
-                            <td>254,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 급성심근경색증종합진단특약(완전관해후재진단포함)</td>
-                            <td>20,000,000원</td>
-                            <td>100세만기</td>
-                            <td>15년납</td>
-                            <td>187,500원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 뇌졸중종합진단특약(해약환급금미지급형/재진단포함)</td>
-                            <td>20,000,000원</td>
-                            <td>100세만기</td>
-                            <td>20년납</td>
-                            <td>162,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 일반상해사망장해종합특약(교통상해포함)</td>
-                            <td>50,000,000원</td>
-                            <td>100세만기</td>
-                            <td>10년납</td>
-                            <td>123,500원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 교통상해사망장해종합특약(대중교통2배보장)</td>
-                            <td>100,000,000원</td>
-                            <td>100세만기</td>
-                            <td>20년납</td>
-                            <td>89,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 질병입원의료비종합특약(입원일당/수술비포함)</td>
-                            <td>50,000원</td>
-                            <td>100세만기</td>
-                            <td>30년납</td>
-                            <td>428,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 상해입원의료비종합특약(입원일당/응급실내원포함)</td>
-                            <td>50,000원</td>
-                            <td>100세만기</td>
-                            <td>10년납</td>
-                            <td>156,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 수술비종합특약(해약환급금미지급형/소액수술포함)</td>
-                            <td>2,000,000원</td>
-                            <td>종신</td>
-                            <td>15년납</td>
-                            <td>211,000원</td>
-                        </tr>
-                        <tr>
-                            <td>(무) 치매간병비종합특약(해약환급금미지급형/인지장애포함)</td>
-                            <td>2,000,000원</td>
-                            <td>종신</td>
-                            <td>15년납</td>
-                            <td>894,000원</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="feature-list" style="margin-top: 30px;">
+            <h3>🎯 실시간 확인 포인트</h3>
+            <ul>
+                <li><strong>가장 긴 특약명</strong>이 좌측 10% 위치에 기준점을 형성합니다</li>
+                <li><strong>가장 큰 금액 "100,000,000원"</strong>이 셀 중앙에 배치됩니다</li>
+                <li><strong>가장 큰 보험료 "894,000원"</strong>이 셀 중앙에 배치됩니다</li>
+                <li>나머지 모든 텍스트들이 각각의 기준점에 맞춰 정렬됩니다</li>
+                <li>화면 크기가 변해도 비율이 유지됩니다</li>
+            </ul>
         </div>
     </div>
 
