@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choi Sungho Table Alignment - Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #34495e;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .demo-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+
+        .control-group {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: 600;
+            margin-right: 10px;
+            color: #2c3e50;
+        }
+
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0 5px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        button.reset {
+            background: #e74c3c;
+        }
+
+        button.reset:hover {
+            background: #c0392b;
+        }
+
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .comparison-section {
+            padding: 20px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+        }
+
+        .comparison-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .traditional {
+            border-color: #e74c3c;
+        }
+
+        .traditional .comparison-title {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .choi-sungho {
+            border-color: #27ae60;
+        }
+
+        .choi-sungho .comparison-title {
+            background: #27ae60;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        td:first-child {
+            text-align: left;
+            font-weight: 600;
+            background: #f8f9fa;
+        }
+
+        .traditional-table td:nth-child(2),
+        .traditional-table td:nth-child(5) {
+            text-align: right;
+        }
+
+        .feature-list {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .feature-list h3 {
+            color: #27ae60;
+            margin-bottom: 15px;
+        }
+
+        .feature-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #34495e;
+            color: white;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+
+            .control-group {
+                display: block;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Choi Sungho Table Alignment</h1>
+        <div class="subtitle">최성호 방식 - 혁신적인 테이블 정렬 방법</div>
+        <div class="description">
+            기존의 단순한 좌측/우측 정렬을 넘어, 가장 긴 텍스트를 기준점으로 하는
+            완전히 새로운 테이블 정렬 방식입니다. 시각적 일관성과 가독성을 극대화하는
+            혁신적인 UI/UX 솔루션을 경험해보세요.
+        </div>
+    </div>
+
+    <div class="feature-list">
+        <h3>🎯 주요 특징</h3>
+        <ul>
+            <li>동적 기준점 설정: 가장 긴 콘텐츠를 자동으로 찾아 기준점으로 설정</li>
+            <li>시각적 일관성: 모든 텍스트가 하나의 기준선으로 정렬되어 깔끔한 시각적 효과</li>
+            <li>반응형 적응: 테이블 크기 변경 시 자동 재계산 및 재정렬</li>
+            <li>컬럼별 최적화: 각 컬럼의 콘텐츠 특성에 맞는 개별 기준점 설정</li>
+            <li>콘텐츠 기반 컬럼 너비: 실제 콘텐츠 길이에 따른 최적 너비 자동 배분</li>
+        </ul>
+    </div>
+
+    <div class="demo-section">
+        <div class="demo-title">📊 실시간 비교 데모</div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>최성호 방식 설정:</label>
+                <button onclick="applyChoiSunghoAlignment()">적용</button>
+                <button onclick="resetAlignment()" class="reset">초기화</button>
+            </div>
+            <div class="control-group">
+                <label>좌측 기준점:</label>
+                <button onclick="changeLeftRatio(0.05)">5%</button>
+                <button onclick="changeLeftRatio(0.1)">10%</button>
+                <button onclick="changeLeftRatio(0.2)">20%</button>
+            </div>
+            <div class="control-group">
+                <label>우측 기준점:</label>
+                <button onclick="changeRightRatio(0.3)">30%</button>
+                <button onclick="changeRightRatio(0.5)">50%</button>
+                <button onclick="changeRightRatio(0.7)">70%</button>
+            </div>
+        </div>
+
+        <div class="comparison-container">
+            <div class="comparison-section traditional">
+                <div class="comparison-title">기존 방식 (Traditional)</div>
+                <table class="traditional-table">
+                    <thead>
+                        <tr>
+                            <th>특약명</th>
+                            <th>가입금액</th>
+                            <th>보험기간</th>
+                            <th>납입기간</th>
+                            <th>보험료(원)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>(무) 중등도치매보장종합특약(해약환급금미지급형/상해질병포함)</td>
+                            <td>10,000,000원</td>
+                            <td>100세만기</td>
+                            <td>10년납</td>
+                            <td>99,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 암진단종합보장특약(해약환급금미지급형/재진단포함)</td>
+                            <td>30,000,000원</td>
+                            <td>종신</td>
+                            <td>20년납</td>
+                            <td>254,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 급성심근경색증종합진단특약(완전관해후재진단포함)</td>
+                            <td>20,000,000원</td>
+                            <td>100세만기</td>
+                            <td>15년납</td>
+                            <td>187,500원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 뇌졸중종합진단특약(해약환급금미지급형/재진단포함)</td>
+                            <td>20,000,000원</td>
+                            <td>100세만기</td>
+                            <td>20년납</td>
+                            <td>162,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 일반상해사망장해종합특약(교통상해포함)</td>
+                            <td>50,000,000원</td>
+                            <td>100세만기</td>
+                            <td>10년납</td>
+                            <td>123,500원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 교통상해사망장해종합특약(대중교통2배보장)</td>
+                            <td>100,000,000원</td>
+                            <td>100세만기</td>
+                            <td>20년납</td>
+                            <td>89,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 질병입원의료비종합특약(입원일당/수술비포함)</td>
+                            <td>50,000원</td>
+                            <td>100세만기</td>
+                            <td>30년납</td>
+                            <td>428,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 상해입원의료비종합특약(입원일당/응급실내원포함)</td>
+                            <td>50,000원</td>
+                            <td>100세만기</td>
+                            <td>10년납</td>
+                            <td>156,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 수술비종합특약(해약환급금미지급형/소액수술포함)</td>
+                            <td>2,000,000원</td>
+                            <td>종신</td>
+                            <td>15년납</td>
+                            <td>211,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 치매간병비종합특약(해약환급금미지급형/인지장애포함)</td>
+                            <td>2,000,000원</td>
+                            <td>종신</td>
+                            <td>15년납</td>
+                            <td>894,000원</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="comparison-section choi-sungho">
+                <div class="comparison-title">최성호 방식 (Choi Sungho Method)</div>
+                <table id="choiSunghoTable">
+                    <thead>
+                        <tr>
+                            <th>특약명</th>
+                            <th>가입금액</th>
+                            <th>보험기간</th>
+                            <th>납입기간</th>
+                            <th>보험료(원)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>(무) 중등도치매보장종합특약(해약환급금미지급형/상해질병포함)</td>
+                            <td>10,000,000원</td>
+                            <td>100세만기</td>
+                            <td>10년납</td>
+                            <td>99,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 암진단종합보장특약(해약환급금미지급형/재진단포함)</td>
+                            <td>30,000,000원</td>
+                            <td>종신</td>
+                            <td>20년납</td>
+                            <td>254,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 급성심근경색증종합진단특약(완전관해후재진단포함)</td>
+                            <td>20,000,000원</td>
+                            <td>100세만기</td>
+                            <td>15년납</td>
+                            <td>187,500원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 뇌졸중종합진단특약(해약환급금미지급형/재진단포함)</td>
+                            <td>20,000,000원</td>
+                            <td>100세만기</td>
+                            <td>20년납</td>
+                            <td>162,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 일반상해사망장해종합특약(교통상해포함)</td>
+                            <td>50,000,000원</td>
+                            <td>100세만기</td>
+                            <td>10년납</td>
+                            <td>123,500원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 교통상해사망장해종합특약(대중교통2배보장)</td>
+                            <td>100,000,000원</td>
+                            <td>100세만기</td>
+                            <td>20년납</td>
+                            <td>89,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 질병입원의료비종합특약(입원일당/수술비포함)</td>
+                            <td>50,000원</td>
+                            <td>100세만기</td>
+                            <td>30년납</td>
+                            <td>428,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 상해입원의료비종합특약(입원일당/응급실내원포함)</td>
+                            <td>50,000원</td>
+                            <td>100세만기</td>
+                            <td>10년납</td>
+                            <td>156,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 수술비종합특약(해약환급금미지급형/소액수술포함)</td>
+                            <td>2,000,000원</td>
+                            <td>종신</td>
+                            <td>15년납</td>
+                            <td>211,000원</td>
+                        </tr>
+                        <tr>
+                            <td>(무) 치매간병비종합특약(해약환급금미지급형/인지장애포함)</td>
+                            <td>2,000,000원</td>
+                            <td>종신</td>
+                            <td>15년납</td>
+                            <td>894,000원</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Choi Sungho Table Alignment Method</p>
+        <p>혁신적인 테이블 정렬을 통한 더 나은 사용자 경험</p>
+    </div>
+
+    <script src="../src/choi-sungho-alignment.js"></script>
+    <script>
+        let alignment = new ChoiSunghoAlignment({
+            leftAlignRatio: 0.1,
+            rightAlignRatio: 0.5
+        });
+
+        function applyChoiSunghoAlignment() {
+            alignment.applyAlignment('#choiSunghoTable', {
+                0: { align: 'left' },
+                1: { align: 'right' },
+                2: { align: 'center' },
+                3: { align: 'center' },
+                4: { align: 'right' }
+            });
+        }
+
+        function resetAlignment() {
+            alignment.removeAlignment('#choiSunghoTable');
+        }
+
+        function changeLeftRatio(ratio) {
+            alignment.options.leftAlignRatio = ratio;
+            applyChoiSunghoAlignment();
+        }
+
+        function changeRightRatio(ratio) {
+            alignment.options.rightAlignRatio = ratio;
+            applyChoiSunghoAlignment();
+        }
+
+        // 페이지 로드 시 자동 적용
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(applyChoiSunghoAlignment, 100);
+        });
+    </script>
+</body>
+</html>

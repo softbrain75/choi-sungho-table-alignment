@@ -1,0 +1,58 @@
+{
+  "name": "choi-sungho-table-alignment",
+  "version": "1.0.0",
+  "description": "혁신적인 테이블 정렬 방법 - 가장 긴 텍스트를 기준점으로 하는 최성호 방식",
+  "main": "src/choi-sungho-alignment.js",
+  "scripts": {
+    "start": "npx serve demo",
+    "build": "npm run minify",
+    "minify": "terser src/choi-sungho-alignment.js -o src/choi-sungho-alignment.min.js --compress --mangle",
+    "test": "echo \"테스트 스크립트 추가 예정\" && exit 0",
+    "demo": "npx serve demo -p 3000"
+  },
+  "keywords": [
+    "table",
+    "alignment",
+    "ui",
+    "ux",
+    "javascript",
+    "table-layout",
+    "responsive",
+    "choi-sungho",
+    "최성호방식",
+    "혁신적정렬",
+    "dynamic-alignment",
+    "table-formatting"
+  ],
+  "author": {
+    "name": "Choi Sungho",
+    "email": "your.email@example.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/choisungho/choi-sungho-table-alignment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/choisungho/choi-sungho-table-alignment/issues"
+  },
+  "homepage": "https://github.com/choisungho/choi-sungho-table-alignment#readme",
+  "files": [
+    "src/",
+    "demo/",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "terser": "^5.16.0"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
