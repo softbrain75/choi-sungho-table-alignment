@@ -159,8 +159,9 @@ class ChoiSunghoAlignment {
 
         switch (alignType) {
             case 'left':
-                padding = (cellWidth * this.options.leftAlignRatio) - (textWidth / 2);
+                padding = (cellWidth * this.options.leftAlignRatio);
                 paddingProperty = 'paddingLeft';
+                textAlign = 'left';
                 break;
             case 'right':
                 padding = (cellWidth * this.options.rightAlignRatio) - (textWidth / 2);
@@ -177,6 +178,10 @@ class ChoiSunghoAlignment {
         rows.forEach(row => {
             const cell = row.cells[colIndex];
             if (cell) {
+                // 기존 패딩 리셋
+                cell.style.paddingLeft = '';
+                cell.style.paddingRight = '';
+
                 cell.style.textAlign = textAlign;
                 cell.style[paddingProperty] = Math.max(0, padding) + 'px';
             }
