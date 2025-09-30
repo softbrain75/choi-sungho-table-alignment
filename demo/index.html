@@ -7,10 +7,11 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
             padding: 20px;
             background: #f5f5f5;
+            box-sizing: border-box;
         }
 
         .header {
@@ -37,7 +38,7 @@
         .description {
             color: #34495e;
             line-height: 1.6;
-            max-width: 800px;
+            width: 100%;
             margin: 0 auto;
         }
 
@@ -126,37 +127,61 @@
             width: 100%;
             border-collapse: collapse;
             margin: 10px 0;
-            font-size: clamp(11px, 2vw, 14px);
-            overflow-x: auto;
+            font-size: clamp(12px, 1.2vw, 16px);
+            table-layout: fixed;
         }
 
         th, td {
             border: 1px solid #ddd;
-            padding: clamp(8px, 1.5vw, 12px);
+            padding: clamp(10px, 1.5vw, 16px);
             text-align: center;
-            white-space: nowrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         th {
             background: #e8f5e8;
             font-weight: 600;
             color: #2c3e50;
-            font-size: clamp(12px, 2.2vw, 15px);
+            font-size: clamp(14px, 1.4vw, 18px);
         }
 
         td:first-child {
             text-align: left;
             font-weight: 600;
             background: #f8f9fa;
-            white-space: normal;
-            min-width: 200px;
+            width: 35%;
         }
 
-        /* 반응형 테이블 스크롤 */
+        td:nth-child(2) {
+            width: 18%;
+        }
+
+        td:nth-child(3) {
+            width: 15%;
+        }
+
+        td:nth-child(4) {
+            width: 15%;
+        }
+
+        td:nth-child(5) {
+            width: 17%;
+        }
+
+        /* 브라우저 폭에 꽉차는 테이블 */
         .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
+            width: 100%;
             border-radius: 8px;
+        }
+
+        .demo-table-section {
+            width: 100%;
+            max-width: none;
+        }
+
+        .demo-container {
+            width: 100%;
         }
 
         .feature-list {
@@ -201,11 +226,11 @@
 
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 5px;
             }
 
             .header {
-                padding: 20px;
+                padding: 15px;
             }
 
             h1 {
@@ -213,11 +238,12 @@
             }
 
             .demo-section {
-                padding: 15px;
+                padding: 10px;
+                margin: 15px 0;
             }
 
             .controls {
-                padding: 10px;
+                padding: 8px;
             }
 
             .control-group {
@@ -232,56 +258,69 @@
             }
 
             table {
-                font-size: 11px;
+                font-size: clamp(10px, 2.5vw, 14px);
+            }
+
+            th, td {
+                padding: clamp(6px, 2vw, 12px);
             }
 
             td:first-child {
-                min-width: 150px;
-                font-size: 10px;
+                width: 40%;
+                font-size: clamp(9px, 2.2vw, 12px);
             }
         }
 
         @media (max-width: 480px) {
+            body {
+                padding: 2px;
+            }
+
             .header {
-                padding: 15px;
+                padding: 10px;
             }
 
             h1 {
-                font-size: 1.8em;
+                font-size: 1.6em;
             }
 
             .demo-section {
-                padding: 10px;
-                margin: 15px 0;
+                padding: 5px;
+                margin: 10px 0;
             }
 
             .controls {
-                padding: 8px;
+                padding: 5px;
             }
 
             .control-group {
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             button {
-                padding: 6px 12px;
-                font-size: 12px;
-                width: calc(50% - 5px);
-                margin: 2px;
+                padding: 6px 10px;
+                font-size: 11px;
+                width: calc(50% - 3px);
+                margin: 1px;
             }
 
             table {
-                font-size: 10px;
+                font-size: clamp(8px, 3vw, 12px);
             }
 
             th, td {
-                padding: 6px 4px;
+                padding: clamp(4px, 1.5vw, 8px);
             }
 
             td:first-child {
-                min-width: 120px;
-                font-size: 9px;
-                line-height: 1.2;
+                width: 45%;
+                font-size: clamp(7px, 2.5vw, 10px);
+                line-height: 1.1;
+            }
+
+            .demo-title-main {
+                font-size: 1em;
+                padding: 10px;
             }
         }
     </style>
