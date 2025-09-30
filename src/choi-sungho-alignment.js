@@ -159,7 +159,7 @@ class ChoiSunghoAlignment {
 
         switch (alignType) {
             case 'left':
-                padding = (cellWidth * this.options.leftAlignRatio);
+                padding = (cellWidth * this.options.leftAlignRatio) - (textWidth / 2);
                 paddingProperty = 'paddingLeft';
                 textAlign = 'left';
                 break;

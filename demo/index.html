@@ -358,9 +358,9 @@
             </div>
             <div class="control-group">
                 <label>좌측 기준점:</label>
-                <button onclick="changeLeftRatio(0.05)">5%</button>
-                <button onclick="changeLeftRatio(0.1)">10%</button>
                 <button onclick="changeLeftRatio(0.2)">20%</button>
+                <button onclick="changeLeftRatio(0.5)">50%</button>
+                <button onclick="changeLeftRatio(0.7)">70%</button>
             </div>
             <div class="control-group">
                 <label>우측 기준점:</label>
@@ -464,7 +464,7 @@
         <div class="feature-list" style="margin-top: 30px;">
             <h3>🎯 실시간 확인 포인트</h3>
             <ul>
-                <li><strong>가장 긴 특약명</strong>이 좌측 10% 위치에 기준점을 형성합니다</li>
+                <li><strong>가장 긴 특약명</strong>이 좌측 20% 위치에 기준점을 형성합니다</li>
                 <li><strong>가장 큰 금액 "100,000,000원"</strong>이 셀 중앙에 배치됩니다</li>
                 <li><strong>가장 큰 보험료 "894,000원"</strong>이 셀 중앙에 배치됩니다</li>
                 <li>나머지 모든 텍스트들이 각각의 기준점에 맞춰 정렬됩니다</li>
@@ -481,7 +481,7 @@
     <script src="../src/choi-sungho-alignment.js"></script>
     <script>
         let alignment = new ChoiSunghoAlignment({
-            leftAlignRatio: 0.1,
+            leftAlignRatio: 0.2,
             rightAlignRatio: 0.5
         });
 
